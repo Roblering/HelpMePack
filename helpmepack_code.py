@@ -17,6 +17,7 @@ except ImportError:
         pip_check = subprocess.run([sys.executable, "-m", "pip"])
         return bool(pip_check.returncode)
     pipcheck = pip_installed()
+    #install the requirements with pip if pip is installed
     if pipcheck == 1:
         # use os.path to get absolute path for requirements.txt, and user's app directory - working in either windows and linux-based
         requirements_path = os.path.abspath("requirements.txt")
@@ -34,12 +35,13 @@ except ImportError:
         import math
         from PIL import Image, ImageTk
         import chardet
-
     elif pipcheck == 0:
+        #check if pip3 is installed
         def pip3_installed():
             pip_check = subprocess.run([sys.executable, "-m", "pip3"])
             return bool(pip_check.returncode)
         pip3check = pip3_installed()
+        #install the requirements with pip3 if pip3 is installed
         if pip3check == 1:
             requirements_path = os.path.abspath("requirements.txt")
             users_directory = os.path.abspath("helpmepack_code.py")
