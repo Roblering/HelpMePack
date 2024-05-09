@@ -22,6 +22,10 @@ except ImportError:
         requirements_path = os.path.abspath("requirements.txt")
         users_directory = os.path.abspath("helpmepack_code.py")
         installer = subprocess.run(['pip', 'install', '-r', requirements_path])
+        if installer.returncode == 1:
+            print(f"There was an ERROR while installing the needed modules to make HelpMePack work.\nPlease ensure you have"
+            f"the 'requirements.txt' file in your app's directory: {users_directory}.")
+            exit()
         import tkinter as tk
         from tkinter import ttk
         import requests
@@ -30,10 +34,7 @@ except ImportError:
         import math
         from PIL import Image, ImageTk
         import chardet
-        if installer.returncode == 1:
-            print(f"There was an ERROR while installing the needed modules to make HelpMePack work.\nPlease ensure you have"
-                f"the 'requirements.txt' file in your app's directory: {users_directory}.")
-            exit()
+
     elif pipcheck == 0:
         def pip3_installed():
             pip_check = subprocess.run([sys.executable, "-m", "pip3"])
@@ -43,6 +44,10 @@ except ImportError:
             requirements_path = os.path.abspath("requirements.txt")
             users_directory = os.path.abspath("helpmepack_code.py")
             installer = subprocess.run(['pip3', 'install', '-r', requirements_path])
+            if installer.returncode == 1:
+                print(f"There was an ERROR while installing the needed modules to make HelpMePack work.\nPlease ensure you have"
+                f"the 'requirements.txt' file in your app's directory: {users_directory}.")
+                exit()
             import tkinter as tk
             from tkinter import ttk
             import requests
