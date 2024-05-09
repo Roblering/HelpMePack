@@ -53,6 +53,7 @@ except ImportError:
             import chardet
         elif pip3check == 0:
             print("Error, pip not installed")
+            exit()
 
 # Setting up the app's interface
 root = tk.Tk()
