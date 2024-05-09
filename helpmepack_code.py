@@ -35,7 +35,7 @@ except ImportError:
         import math
         from PIL import Image, ImageTk
         import chardet
-    elif pipcheck == 0:
+    else:
         #check if pip3 is installed
         def pip3_installed():
             pip_check = subprocess.run([sys.executable, "-m", "pip3"])
@@ -58,7 +58,7 @@ except ImportError:
             import math
             from PIL import Image, ImageTk
             import chardet
-        elif pip3check == 0:
+        else:
             print("Error, pip not installed")
             exit()
 
